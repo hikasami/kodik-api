@@ -17,11 +17,11 @@ type Material struct {
 	OtherTitle       string      `json:"other_title"`
 	Link             string      `json:"link"`
 	Year             int         `json:"year"`
-	KinopoiskID      int         `json:"kinopoisk_id"`
+	KinopoiskID      string      `json:"kinopoisk_id"`
 	ImdbID           string      `json:"imdb_id"`
 	MdlID            string      `json:"mdl_id"`
 	WorldartLink     string      `json:"worldart_link"`
-	ShikimoriID      int         `json:"shikimori_id"`
+	ShikimoriID      string      `json:"shikimori_id"`
 	Type             string      `json:"type"`
 	Quality          string      `json:"quality"`
 	Camrip           bool        `json:"camrip"`
