@@ -4,7 +4,7 @@ import "time"
 
 // Translation описывает структуру озвучки (дублирования).
 type Translation struct {
-	ID    string `json:"id"`
+	ID    int    `json:"id"`
 	Title string `json:"title"`
 	Type  string `json:"type"` // Возможные значения: "voice" или "subtitles"
 }

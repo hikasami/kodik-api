@@ -6,10 +6,10 @@ import (
 )
 
 // Search выполняет запрос к эндпоинту /search API Kodik, используя параметры, заданные в структуре models.SearchParams.
-func Search(c *client.Client, sp *models.SearchParams) (*models.SearchResponse, error) {
+func Search(sp *models.SearchParams) (*models.SearchResponse, error) {
 	var response models.SearchResponse
 	params := sp.ToMap()
-	err := c.DoRequest("GET", "/search", params, &response)
+	err := client.DefaultClient.DoRequest("GET", "/search", params, &response)
 	if err != nil {
 		return nil, err
 	}
