@@ -2,7 +2,7 @@ package client
 
 import (
 	"encoding/json"
-	"errors"
+	"github.com/hikasami/kodik-api/errors"
 	"net/http"
 	"net/url"
 	"strings"
@@ -83,7 +83,7 @@ func (c *Client) DoRequest(
 		}
 		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	} else {
-		return errors.New("unsupported method")
+		return errors.ErrUnsupportedMethod
 	}
 
 	resp, err := c.HttpClient.Do(req)
@@ -93,7 +93,7 @@ func (c *Client) DoRequest(
 	defer resp.Body.Close()
 
 	if resp.StatusCode != http.StatusOK {
-		return errors.New("unexpected status code: " + resp.Status)
+		return errors.ErrUnexpectedStatus
 	}
 
 	return json.NewDecoder(resp.Body).Decode(result)
