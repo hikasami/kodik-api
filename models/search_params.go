@@ -44,6 +44,7 @@ type SearchParams struct {
 	WithSeasons               bool   `json:"with_seasons,omitempty"`
 	Season                    int    `json:"season,omitempty"`
 	WithEpisodes              bool   `json:"with_episodes,omitempty"`
+	WithEpisodesData          bool   `json:"with_episodes_data,omitempty`
 	Episode                   int    `json:"episode,omitempty"`
 	WithPageLinks             bool   `json:"with_page_links,omitempty"`
 	NotBlockedIn              string `json:"not_blocked_in,omitempty"` // список стран через запятую (без пробелов)
@@ -180,6 +181,11 @@ func (sp *SearchParams) ToMap() map[string]string {
 		params["with_episodes"] = "true"
 	} else {
 		params["with_episodes"] = "false"
+	}
+	if sp.WithEpisodesData {
+		params["with_episodes_data"] = "true"
+	} else {
+		params["with_episodes_data"] = "false"
 	}
 	if sp.Episode != 0 {
 		params["episode"] = strconv.Itoa(sp.Episode)
